@@ -43,7 +43,7 @@ class Song
   def self.new_from_filename(file_name)
     data= file_name.split (" - ")
     name[1].slice!(".mp3")
-    
+
 
     song = self.new
     song.name = name[1]
