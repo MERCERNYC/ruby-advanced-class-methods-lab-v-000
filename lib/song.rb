@@ -10,7 +10,7 @@ class Song
     @@all
     end
 
-  def self.create #instantiates and saves the song, and it returns the new song that was created
+  def self.create #constructor -it is an extension of initialize
     song = self.new
     song.save
     song
