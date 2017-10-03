@@ -45,7 +45,6 @@ class Song
     artist_name = data[0]
     name = data[1].slice!(".mp3")
 
-
     song = self.new
     song.name = name
     song.artist_name = artist_name
