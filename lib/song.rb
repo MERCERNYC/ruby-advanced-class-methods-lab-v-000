@@ -1,13 +1,43 @@
 class Song
   attr_accessor :name, :artist_name
-  @@all = []
+  @@all= []
+
+   def save
+     self.class.all << self
+  end
 
   def self.all
     @@all
+    end
+
+  def self.create #instantiates and saves the song, and it returns the new song that was created
+    song = self.new
+    song.save
+    song
   end
 
-  def save
-    self.class.all << self
+  def self.new_by_name(song_name)#instantiates a song with name property
+    song = self.new
+    song.name = song_name
+    song
   end
 
+  def self.create_by_name(song_name)
+    song = self.create
+    song.name = song_name
+    song
+  end
+
+  def self.find_by_name(name)
+      @@all.detect{|song| song.name == name}
+    end
+
+  def self.find_or_create_by_name(song_name)
+    self.find_by_name(song_name) || self.create_by_name(song_name)
+  end
+
+
+   def self.destroy_all
+    @@all.clear
+  end
 end
